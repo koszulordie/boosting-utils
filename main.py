@@ -7,7 +7,7 @@ import xgboost as xgb
 random_seed = 42
 
 
-def custom_eval(alpha=1):
+def custom_eval(alpha=1e-3):
     """alpha: tolerance factor"""
     def rmse(predt, dtrain):
         """ Modified root mean squared log error metric."""
@@ -17,7 +17,7 @@ def custom_eval(alpha=1):
     return rmse
 
 
-def train(values, XGB_PARAMS, tol_alpha=1, verbose=False):
+def train(values, XGB_PARAMS, tol_alpha=1e-3, verbose=False):
     """
     Returns:
         XGBoost model fit to data
